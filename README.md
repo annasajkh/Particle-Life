@@ -1,7 +1,6 @@
 # Particle-Life
 coolest 2d life simulation ever existed
-
-the executable are in desktop/build/libs
+you can download the release and just run the jar file
 
 # build the project 
 clone or download this repo
