@@ -2,6 +2,8 @@
 coolest 2d life simulation ever existed
 this barely working cuz im stupid
 you can download the release and just run the jar file
+i used this for reference
+https://youtu.be/Z_zmZ23grXE
 
 # build the project 
 clone or download this repo
