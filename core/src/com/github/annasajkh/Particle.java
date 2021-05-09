@@ -8,9 +8,9 @@ public class Particle
 	float x, y;
 	float vx, vy;
 	
-    float friction = 0.5f;
+	float friction = 0.5f;
     
-    ParticleClass particleClass;
+	ParticleClass particleClass;
 	
 	public Particle(float x, float y,ParticleClass particleClass)
 	{
@@ -21,38 +21,38 @@ public class Particle
 	
 	public static float invSqrt(float x) 
 	{
-	    final float xhalf = 0.5f * x;
-	    
-	    int i = Float.floatToIntBits(x);
-	    i = 0x5f3759df - (i >> 1);
-	    
-	    x = Float.intBitsToFloat(i);
-	    x *= (1.5f - xhalf * x * x);
-	    
-	    return x;
+		final float xhalf = 0.5f * x;
+
+		int i = Float.floatToIntBits(x);
+		i = 0x5f3759df - (i >> 1);
+
+		x = Float.intBitsToFloat(i);
+		x *= (1.5f - xhalf * x * x);
+
+		return x;
 	}
 	
-    public void addForce(Particle other)
-    {
-    	float length = getDistance(other);
-    	float collisionDirX = (x - other.x) / length;
-    	float collisionDirY = (y - other.y) / length;
+	public void addForce(Particle other)
+	{
+		float length = getDistance(other);
+		float collisionDirX = (x - other.x) / length;
+		float collisionDirY = (y - other.y) / length;
     	
-    	if(!intersects(other))
-    	{    		
-    		vx += collisionDirX * particleClass.attractForce;
-    		vy += collisionDirY * particleClass.attractForce;
-    	}
+		if(!intersects(other))
+		{    		
+			vx += collisionDirX * particleClass.attractForce;
+			vy += collisionDirY * particleClass.attractForce;
+		}
 
-    	vx -= collisionDirX * particleClass.repulseForce;
-    	vy -= collisionDirY * particleClass.repulseForce;
-    	
-    	vx *= friction;
-    	vy *= friction;
-    }
+		vx -= collisionDirX * particleClass.repulseForce;
+		vy -= collisionDirY * particleClass.repulseForce;
+
+		vx *= friction;
+		vy *= friction;
+	}
 	
 	
-    public float getDistance(Particle other)
+	public float getDistance(Particle other)
 	{
 		final float dx = other.x - x;
 		final float dy = other.y - y;
