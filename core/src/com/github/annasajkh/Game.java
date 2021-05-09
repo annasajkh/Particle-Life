@@ -64,11 +64,11 @@ public class Game extends ApplicationAdapter
 				{
 					float distance2 = particle.getDistance2(otherParticle);
         			
-        			if (distance2 <= particle.particleClass.maxRadius * particle.particleClass.maxRadius && 
-        				distance2 >= particle.particleClass.minRadius * particle.particleClass.minRadius)
-        			{
-        				particle.addForce(otherParticle);
-        			}
+					if (distance2 <= particle.particleClass.maxRadius * particle.particleClass.maxRadius && 
+						distance2 >= particle.particleClass.minRadius * particle.particleClass.minRadius)
+					{
+						particle.addForce(otherParticle);
+					}
 				}
 			}
 		}
@@ -77,6 +77,7 @@ public class Game extends ApplicationAdapter
 		{
 			particle.update(Gdx.graphics.getDeltaTime());
 		}
+		
 		for(Particle particle : particles)
 		{
 			for(Particle otherParticle : particles)
